@@ -34,7 +34,7 @@ export default function RootLayout({
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
           >
               <div className={"h-screen flex flex-col justify-between"}>
-                  <div>
+                  <div className={"sticky top-0 z-50"}>
                     <TopNav/>
                   </div>
                   <div className={"flex-1"}>

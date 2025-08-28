@@ -11,13 +11,13 @@ const BottomNav: React.FC = () => {
     const router = useRouter();
     const { isSignedIn } = useUser();
 
-    if (!isSignedIn) return null; // don't render if not signed in
+    if (!isSignedIn) return null;
 
     const navItems = [
         { name: "Home", icon: <Home size={20} />, path: "/" },
-        { name: "Stats", icon: <User size={20} />, path: "/userstats" },
+        { name: "Stats", icon: <User size={20} />, path: "/user-stat" },
         { name: "Quests", icon: <List size={20} />, path: "/quests" },
-        { name: "Leader", icon: <Trophy size={20} />, path: "/leaderboard" },
+        { name: "Leader", icon: <Trophy size={20} />, path: "/leader" },
     ];
 
     return (
