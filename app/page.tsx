@@ -4,8 +4,7 @@ import {UserButton} from "@clerk/nextjs";
 const Page = () => {
     return (
         <div>
-            Wellify
-            <UserButton/>
+            Home
         </div>
     );
 };
