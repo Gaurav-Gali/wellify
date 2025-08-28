@@ -1,13 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, useUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { format, addDays } from "date-fns";
-import {Separator} from "@/components/ui/separator";
+import { Separator } from "@/components/ui/separator";
 
 const TopNav: React.FC = () => {
+    const { isSignedIn } = useUser(); // check if user is signed in
     const [selectedDay, setSelectedDay] = useState(0);
+
+    if (!isSignedIn) return null; // render nothing if not signed in
 
     const days = Array.from({ length: 7 }, (_, i) => {
         const date = addDays(new Date(), i);
@@ -17,7 +20,7 @@ const TopNav: React.FC = () => {
     return (
         <div>
             <div className="flex justify-between items-center gap-3 px-3 py-2">
-                <span >Wellify</span>
+                <span>Wellify</span>
 
                 <div className="flex gap-2 overflow-x-auto p-2">
                     {days.map((day, index) => (
@@ -32,9 +35,11 @@ const TopNav: React.FC = () => {
                     ))}
                 </div>
 
-                <UserButton />
+                <div className="border-2 rounded-full w-fit h-8">
+                    <UserButton />
+                </div>
             </div>
-            <Separator/>
+            <Separator />
         </div>
     );
 };

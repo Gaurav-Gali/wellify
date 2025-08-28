@@ -5,9 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Home, User, Trophy, List, MessageCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useUser } from "@clerk/nextjs";
 
 const BottomNav: React.FC = () => {
     const router = useRouter();
+    const { isSignedIn } = useUser();
+
+    if (!isSignedIn) return null; // don't render if not signed in
 
     const navItems = [
         { name: "Home", icon: <Home size={20} />, path: "/" },
@@ -18,7 +22,7 @@ const BottomNav: React.FC = () => {
 
     return (
         <div className="fixed bottom-4 left-0 right-0 flex justify-center z-50 pointer-events-none px-2">
-            <Card className={"rounded-xl"}>
+            <Card className="rounded-xl">
                 <div className="flex flex-wrap justify-between items-center w-full max-w-md px-4 py-0 pointer-events-auto gap-2">
                     {navItems.slice(0, 2).map((item) => (
                         <Button

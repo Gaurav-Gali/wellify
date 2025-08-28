@@ -10,6 +10,8 @@ export default clerkMiddleware(
     },
     {
         signInUrl: '/auth',
+        afterSignInUrl: '/',
+        afterSignUpUrl:"/"
     }
 )
 
