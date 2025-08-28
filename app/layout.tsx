@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import {
-    ClerkProvider,
-    SignInButton,
-    SignUpButton,
-    SignedIn,
-    SignedOut,
-    UserButton,
+    ClerkProvider
 } from '@clerk/nextjs'
 import "./globals.css";
+import BottomNav from "@/components/BottomNav";
+import TopNav from "@/components/TopNav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,7 +33,17 @@ export default function RootLayout({
           <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
           >
-            {children}
+              <div className={"h-screen flex flex-col justify-between"}>
+                  <div>
+                    <TopNav/>
+                  </div>
+                  <div className={"flex-1"}>
+                    {children}
+                  </div>
+                  <div>
+                    <BottomNav/>
+                  </div>
+              </div>
           </body>
         </html>
       </ClerkProvider>

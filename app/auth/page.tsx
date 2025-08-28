@@ -9,13 +9,16 @@ import {
     CardTitle,
     CardFooter,
 } from "@/components/ui/card";
-import { useSignIn } from "@clerk/nextjs";
-import { useCallback } from "react";
+import { useSignIn, useAuth } from "@clerk/nextjs";
+import { useCallback, useEffect } from "react";
 
 import { Grid2x2, Chromium } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function CardDemo() {
     const { signIn, isLoaded } = useSignIn();
+    const { isSignedIn } = useAuth();
+    const router = useRouter();
 
     const handleOAuth = useCallback(
         async (strategy: "oauth_google" | "oauth_microsoft") => {
@@ -24,7 +27,7 @@ export default function CardDemo() {
             try {
                 await signIn.authenticateWithRedirect({
                     strategy,
-                    redirectUrl: "/", // Redirect to home after sign-in
+                    redirectUrl: "/",
                 });
             } catch (err) {
                 console.error("OAuth sign-in error:", err);
@@ -33,6 +36,13 @@ export default function CardDemo() {
         [isLoaded, signIn]
     );
 
+    // Redirect if already signed in
+    useEffect(() => {
+        if (isSignedIn) {
+            router.push("/");
+        }
+    }, [isSignedIn, router]);
+
     return (
         <div
             style={{
@@ -40,7 +50,7 @@ export default function CardDemo() {
                 justifyContent: "center",
                 alignItems: "center",
                 minHeight: "100vh",
-                padding: "1rem", // Ensures some spacing on small screens
+                padding: "1rem",
                 boxSizing: "border-box",
             }}
         >
@@ -60,7 +70,13 @@ export default function CardDemo() {
                 >
                     <Button
                         onClick={() => handleOAuth("oauth_google")}
-                        style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", width: "100%" }}
+                        style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            gap: "0.5rem",
+                            width: "100%",
+                        }}
                     >
                         <Chromium />
                         Continue with Google
@@ -68,7 +84,13 @@ export default function CardDemo() {
 
                     <Button
                         onClick={() => handleOAuth("oauth_microsoft")}
-                        style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", width: "100%" }}
+                        style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            gap: "0.5rem",
+                            width: "100%",
+                        }}
                     >
                         <Grid2x2 />
                         Continue with Microsoft
@@ -78,7 +100,6 @@ export default function CardDemo() {
                 <CardFooter style={{ textAlign: "center" }}>
                     &#34;Health is the greatest gift, contentment the greatest wealth.&#34; – Buddha
                 </CardFooter>
-
             </Card>
         </div>
     );
