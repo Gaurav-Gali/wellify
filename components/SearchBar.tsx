@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
 
-const SearchBar: React.FC = () => {
+const SearchBar: React.FC = ({message}:{message:string}) => {
     const [query, setQuery] = useState("");
 
     const handleSearch = () => {
@@ -17,7 +17,7 @@ const SearchBar: React.FC = () => {
         <div className="flex mt-2 px-2 py-1 max-w-md mx-auto gap-2">
             <Input
                 type="text"
-                placeholder="Look for others ..."
+                placeholder={message}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 className="flex-1"

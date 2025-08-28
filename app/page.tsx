@@ -47,7 +47,7 @@ const Page = () => {
     ];
     return (
         <div>
-            <SearchBar/>
+            <SearchBar message={"Look for people ..."}/>
             <div className={"mx-2"}>
                 {samplePosts.map((post, idx) => (
                     <PostCard
