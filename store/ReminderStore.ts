@@ -24,7 +24,7 @@ export const ReminderAtom =  atom<ReminderType[]>([
     {
         id:"1",
         reminderName: "Drink Water",
-        duration: 5,
+        duration: 2,
         actionPath: "/hydration",
     },
 ]);

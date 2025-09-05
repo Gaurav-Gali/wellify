@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌟 Wellify
 
-## Getting Started
+> **Your Personal Health & Wellness Companion**
 
-First, run the development server:
+Wellify is a comprehensive health and wellness application built with Next.js that combines AI-powered coaching, posture analysis, habit tracking, and social features to help you achieve your wellness goals.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🤖 AI-Powered Health Coach
+Get personalized health advice and coaching powered by advanced AI algorithms.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+![CoachAI](./OutputMedia/CoachAI.png)
 
-## Learn More
+### 📊 Comprehensive Dashboard
+Track your progress with detailed analytics and insights into your health journey.
 
-To learn more about Next.js, take a look at the following resources:
+![Dashboard](./OutputMedia/Dashboard.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🏆 Gamified Wellness Experience
+Stay motivated with quests, achievements, and leaderboards.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+<div align="center">
+  <img src="./OutputMedia/Quests.png" alt="Quests" width="45%" style="margin-right: 2%">
+  <img src="./OutputMedia/Leader.png" alt="Leaderboard" width="45%">
+</div>
 
-## Deploy on Vercel
+### 🧘 Mindfulness & Breathing
+Integrated breathing exercises and mindfulness activities to reduce stress and improve mental health.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![Breathe](./OutputMedia/Breathe.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 📱 Social Feed
+Connect with like-minded individuals, share your progress, and get motivated by the community.
+
+![Feed](./OutputMedia/Feed.png)
+
+### 🔒 Secure Authentication
+Secure login and user management powered by Clerk.
+
+![Login](./OutputMedia/Login.png)
+
+### 📅 Smart Reminders
+Never miss your wellness activities with intelligent reminder system.
+
+![Reminders](./OutputMedia/Reminders.png)
+
+### 🎯 Posture & Movement Analysis
+AI-powered posture analysis using MediaPipe technology to help improve your physical well-being.
+
+<div align="center">
+  <img src="./OutputMedia/Posture.jpeg" alt="Posture Analysis" width="45%" style="margin-right: 2%">
+  <img src="./OutputMedia/Puzzle.jpeg" alt="Movement Puzzle" width="45%">
+</div>
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js 15.5.2 with Turbopack
+- **Authentication:** Clerk
+- **Database:** Neon PostgreSQL with Drizzle ORM
+- **AI/ML:** MediaPipe for computer vision, Face-API.js
+- **UI/UX:** Tailwind CSS, Radix UI, Framer Motion
+- **Charts:** Recharts
+- **Camera:** React Webcam
+- **State Management:** Jotai
+- **Icons:** Lucide React, React Icons
+
+## 🌟 Key Features Deep Dive
+
+### AI Health Coaching
+- Personalized health recommendations
+- Real-time feedback and suggestions
+- Progress tracking and analysis
+
+### Computer Vision Integration
+- Real-time posture analysis using MediaPipe
+- Face mesh detection for wellness insights
+- Camera-based movement tracking
+
+### Gamification Elements
+- Achievement system
+- Progress quests
+- Community leaderboards
+- Social sharing capabilities
+
+### Data Analytics
+- Comprehensive health metrics
+- Visual progress charts
+- Trend analysis
+- Export capabilities
+
+---
+
+## 🔧 Configuration
+
+The application uses several external services that require configuration:
+
+- **Clerk** - User authentication and management
+- **Neon** - PostgreSQL database hosting
+- **MediaPipe** - AI/ML computer vision tasks
+
+Make sure to set up your `.env.local` file with the appropriate API keys and configuration values.
+
+---
+
+## 📚 Learning Resources
+
+To learn more about the technologies used in this project:
+
+- [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API
+- [Clerk Documentation](https://clerk.com/docs) - Authentication and user management
+- [MediaPipe](https://mediapipe.dev/) - ML solutions for live and streaming media
+- [Tailwind CSS](https://tailwindcss.com/docs) - Utility-first CSS framework
+- [Drizzle ORM](https://orm.drizzle.team/) - TypeScript ORM
+
+---
+
+<div align="center">
+  <strong>Built with ❤️ for a healthier tomorrow</strong>
+</div>
